@@ -1,17 +1,26 @@
+.col-md-8.col-md-offset-2
 
-#workout
-  %p= @workout.date
-  %p= @workout.workout
-  %p= @workout.mood
-  %p= @workout.length
+  #workout
+    %p
+      Date:
+      = @workout.date
+    %p
+      Body part worked out:
+      = @workout.workout
+    %p
+      Mood:
+      = @workout.mood
+    %p
+      Duration:
+      = @workout.length
 
-#exercises
-  %h2 Exercises
-  = render @workout.exercises
+  #exercises
+    %h2 Exercises
+    = render @workout.exercises
 
-  %h3 Add exercise
-  = render "exercises/form"
+    %h3 Add exercise
+    = render "exercises/form"
 
-= link_to "Back", root_path
-= link_to "Edit", edit_workout_path(@workout)
-= link_to "Delete", workout_path(@workout), method: :delete, data: { confirm: "Are you sure?" }
+  = link_to "Back", root_path
+  = link_to "Edit", edit_workout_path(@workout)
+  = link_to "Delete", workout_path(@workout), method: :delete, data: { confirm: "Are you sure?" }

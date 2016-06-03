@@ -1,17 +1,7 @@
-!!!
-%html
-%head
-  %title Workout Log Application
-  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-  = javascript_include_tag 'application', 'data-turbolinks-track' => true
-  = csrf_meta_tags
-%body
-  %nav.navbar.navbar-default
-    .container
-      .navbar-header
-        = link_to "Workout Log", root_path, class: "navbar-brand"
-      .nav.navbar-nav.navbar-right
-        = link_to "New Workout", new_workout_path, class: "nav navbar-link"
-
-  .container
-    = yield
+= simple_form_for(@workout, html: { class: 'form-horizontal' }) do |f|
+  = f.input :date, label: "Date"
+  = f.input :workout, label: "What area did you workout?", input_html: { class: "form-control" }
+  = f.input :mood, label: "How were you feeling?", input_html: { class: "form-control" }
+  = f.input :length, label: "How long was the workout?", input_html: { class: "form-control" }
+  %br/
+  = f.button :submit
